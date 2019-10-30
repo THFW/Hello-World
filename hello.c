@@ -1,37 +1,14 @@
-#if 1
 #include<stdio.h>
+#include<string.h>
 #define N 100
-int main()
-{	int i;
-    char a[N],b;
-    gets(a);
-	for(i=0;i<N;i++)
-	{
-		if(a[i]>='A'&&a[i]<='Z')
-		{	
-			
-			a[i]=a[i]+32;	
-			
-		}
-		else if(a[i]=='\0')
-			break;
 
-	}
-	
-	for(i=0;i<N;i++)
-		if(a[i]=='\0')
-			break;
-		else
-			printf("%c",a[i]);
-
-    return 0;
-}
-#else
-#include<stdio.h>
 int main()
 {
-    char a[3]={'A','B','C'},b;
-    printf("%d %c",'a',a[1]+32);
+    int a,b;
+	char str1[N],str2[N],str[N];
+	gets(str1);
+	gets(str2);
+    strcat(str1,str2);
+	printf("%s",str1);
     return 0;
 }
-#endif
