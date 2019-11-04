@@ -1,14 +1,14 @@
 #include<stdio.h>
-#include<string.h>
 #define N 100
-
 int main()
-{
-    int a,b;
-	char str1[N],str2[N],str[N];
-	gets(str1);
-	gets(str2);
-    strcat(str1,str2);
-	printf("%s",str1);
+{	int i=0,b=0;
+    char a[N];
+	gets(a);
+    for(i=0;i<N;i++)
+	{
+		if((a[i]>='A'&&a[i]<='Z')||(a[i]>='a'&&a[i]<='z'))
+			b=b+1;
+	}
+	printf("%d",b);
     return 0;
 }
