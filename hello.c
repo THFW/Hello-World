@@ -1,21 +1,56 @@
 #include<stdio.h>
-#define N 100
+struct tong {
+	int 	year;
+	int		month;
+	int		day;
+};
 int main()
-{char a[N];
-    int b=0,i=0;
-    gets(a);
-	for(i=0;i<N;i++)
+{
+    int d,dsum;
+    struct tong ss;
+	scanf("%d %d %d",&ss.year,&ss.month,&ss.day);
+	switch(ss.month)
 	{
-		if(a[i]=='\0')
-			break;
-		else
-			b++;
+	case 1: d=ss.day;
+		break;
+	case 2: d=31+ss.day;
+    case 3:	d=31+ss.day;
+		break;
+	case 4: d=31+31+ss.day;
+		break;
+	case 5: d=31+31+30+ss.day;
+		break;
+	case 6: d=31+31+30+31+ss.day;
+		break;
+    case 7: d=31+31+30+31+30+ss.day;
+		break;
+	case 8: d=31+31+30+31+30+31+ss.day;
+		break;
+	case 9: d=31+31+30+31+30+31+31+ss.day;
+		break;
+	case 10:d=31+31+30+31+30+31+31+30+ss.day;
+		break;
+    case 11:d=31+31+30+31+30+31+31+30+31+ss.day;
+		break;
+	case 12:d=31+31+30+31+30+31+31+30+31+30+ss.day;
+		break;
+	default:printf("error");
 	}
-	for(i=0;i<b;i++)
+	
+	if(ss.month>2){
+	if((ss.year%4==0&&ss.year%100!=0)||ss.year%400==0)
 	{
-		if((a[i]>='a'&&a[i]<='z')||(a[i]>='A'&&a[i]<='Z'))
-			a[i]=a[i]+1;
-	 printf("%c",a[i]);
+		dsum=29+d;
 	}
+	else
+	{
+		dsum=28+d;
+	}
+	}
+	else
+	{
+		dsum=d;
+	}
+	printf("%d",dsum);
     return 0;
 }
