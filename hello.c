@@ -1,56 +1,49 @@
-#include<stdio.h>
-struct tong {
-	int 	year;
-	int		month;
-	int		day;
+#include <stdio.h>
+#define M 100
+struct tong{
+     char   stunum[10];
+     char name[10];
+     int  score[3];
 };
 int main()
 {
-    int d,dsum;
-    struct tong ss;
-	scanf("%d %d %d",&ss.year,&ss.month,&ss.day);
-	switch(ss.month)
+ struct   tong stu[M];
+ int aa[M],bb[M];
+ int i, N,a=0,b=0,c=0,max=0,t=0,n=0;
+ scanf("%d",&N);
+ for(i=0;i<N;i++)
+ {
+	 scanf("%s %s %d %d %d",stu[i].stunum,stu[i].name,&stu[i].score[0],&stu[i].score[1],&stu[i].score[2]);
+ }
+
+for(i=0;i<N;i++)
+{
+	a=stu[i].score[0]+a;
+	b=stu[i].score[1]+b;
+	c=stu[i].score[2]+c;
+}
+
+printf("%d %d %d\n",a/N,b/N,c/N);
+
+for(i=0;i<N;i++)
+{
+	 aa[i]=stu[i].score[0]+stu[i].score[1]+stu[i].score[2]; 
+	 bb[i]=stu[i].score[0]+stu[i].score[1]+stu[i].score[2]; 
+ }
+ for(i=0;i<N; i++)
+ {
+	if(aa[i]>max)
 	{
-	case 1: d=ss.day;
-		break;
-	case 2: d=31+ss.day;
-    case 3:	d=31+ss.day;
-		break;
-	case 4: d=31+31+ss.day;
-		break;
-	case 5: d=31+31+30+ss.day;
-		break;
-	case 6: d=31+31+30+31+ss.day;
-		break;
-    case 7: d=31+31+30+31+30+ss.day;
-		break;
-	case 8: d=31+31+30+31+30+31+ss.day;
-		break;
-	case 9: d=31+31+30+31+30+31+31+ss.day;
-		break;
-	case 10:d=31+31+30+31+30+31+31+30+ss.day;
-		break;
-    case 11:d=31+31+30+31+30+31+31+30+31+ss.day;
-		break;
-	case 12:d=31+31+30+31+30+31+31+30+31+30+ss.day;
-		break;
-	default:printf("error");
+		t=max;
+		max=aa[i];
+		aa[i]=t;
 	}
-	
-	if(ss.month>2){
-	if((ss.year%4==0&&ss.year%100!=0)||ss.year%400==0)
+ }
+ for(i=0;i<N;i++)
+ {
+	if(bb[i]==max)
 	{
-		dsum=29+d;
+		printf("%s %s %d %d %d",stu[i].stunum,stu[i].name,stu[i].score[0],stu[i].score[1],stu[i].score[2]);
 	}
-	else
-	{
-		dsum=28+d;
-	}
-	}
-	else
-	{
-		dsum=d;
-	}
-	printf("%d",dsum);
-    return 0;
+ }
 }
