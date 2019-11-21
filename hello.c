@@ -1,17 +1,43 @@
 #include<stdio.h>
-#define LEAP_YEAR(y)  if(((y%4==0)&&(y%100!=0))||(y%400==0))\
-					  {\
-						  printf("L");\
-					  }\
-					  else\
-					  {\
-						  printf("N");\
-					  }
-int main()
+#define MAX(a,b,c)  if(a>b)\
+					{max=a;}\
+					else\
+					{max=b;}\
+					if(a>c)\
+					{max=a;}\
+					else\
+					{max=c;}\
+					if(b>c)\
+					{max=b;}\
+					else\
+					{max=c;}
+float maxx(float a,float b,float c);
+int  main()
 {
-    int a;
-    scanf("%d",&a);
-	LEAP_YEAR(a);
+    float a,b,c,max=0,d;
+    scanf("%f %f %f",&a,&b,&c);
+	d=maxx(a,b,c);
+	MAX(a,b,c);
+	printf("%.3f\n",d);
+	printf("%.3f\n",max);
 
     return 0;
+}
+float maxx(float a,float b,float c)
+{	
+	float max;
+	if(a>b)
+		max=a;
+	else
+		max=b;
+	if(a>c)
+		max=a;
+	else
+		max=c;
+	if(b>c)
+		max=b;
+	else
+		max=c;
+
+	return max;
 }
