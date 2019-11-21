@@ -1,11 +1,13 @@
 #include<stdio.h>
-#define SQ(a,b)  a=a-b;b=a+b;a=b-a;
-
+#include <math.h>
+#define S(a,b,c)		(a+b+c)/2
+#define AREA(a,b,c,S)	sqrt(S*(S-a)*(S-b)*(S-c))
 int main()
 {
-    int a,b;
-    scanf("%d %d",&a,&b);
-	SQ(a,b);
-	printf("%d %d\n",a,b);
+    float a,b,c;
+    scanf("%f %f %f",&a,&b,&c);
+
+	printf("%.3f",AREA(a,b,c,S(a,b,c)));
+
     return 0;
 }
